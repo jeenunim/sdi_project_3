@@ -52,8 +52,7 @@ app.put('/weapon/:id', (req, res) => {
     let weaponID = req.params.id;
     knex('weapon_system').where({ id: weaponID })
     .update({name: req.body.name || null, 
-        details: req.body.details || null, 
-        weapon_type_id: req.body.weapon_type_id || null})
+        details: req.body.details || null})
         .returning('*')
         .then(function(data) {res.send(data)})
 })
@@ -121,17 +120,17 @@ app.delete('/target/:id', (req, res) => {
 })
 
 // Anti-armor endpoint //
-app.get('/anti-armor', (req, res) => {
-    knex('system_type_bridge')
-        .select('*')
-        .where('weapon_type_id', '2')
-        .then(data => {
-            //data formatting if we'd like
-            var weapon = data.map(data => data.weapon_system_id)
-            let result = knex('weapon_system').select('*').where({id: weapon})
-            return result
-        })
-    })
+// app.get('/anti-armor', (req, res) => {
+//     knex('system_type_bridge')
+//         .select('*')
+//         .where('weapon_type_id', '2')
+//         .then(data => {
+//             //data formatting if we'd like
+//             var weapon = data.map(data => data.weapon_system_id)
+//             let result = knex('weapon_system').select('*').where({id: weapon})
+//             return result
+//         })
+//     })
 
 
 
