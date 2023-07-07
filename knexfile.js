@@ -7,7 +7,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://postgres:docker@localhost/project_3'
+    connection: 'postgres://postgres:docker@localhost/sdi_project_3'
   },
 
   staging: {
