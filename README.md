@@ -7,3 +7,8 @@
 #### Solution: 
 >SARGE-9000 is a chat GPT sergeant that can help even the fifth in line to maintain economies of force. It can evaluate an enemy emplacement, vehicles, etc., and present which weapons are most effective and tactics that have been successful in the past. Location/Rangefinding, computer vision, and isolated mode can make sure PVT Snuffy can be pointed in the right direction to get the job done.
 ---
+
+# SARGE-9000
+Miguel added a change.
+Alex Added a change
+

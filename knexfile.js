@@ -7,9 +7,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: {
-      filename: './dev.sqlite3'
-    }
+    connection: 'postgres://postgres:docker@localhost/sdi_project_3'
   },
 
   staging: {
