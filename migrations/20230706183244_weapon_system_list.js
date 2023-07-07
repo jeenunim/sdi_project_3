@@ -6,6 +6,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('weapon_system', table => {
     table.increments('id');
     table.string('name');
+    table.string('details');
     table.integer('weapon_type_id');
     table.foreign('weapon_type_id').references('weapon_type.id');
   })

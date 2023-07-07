@@ -25,7 +25,22 @@
 ### SU 57
 ![SU 57](https://i.pinimg.com/originals/20/83/32/208332078e19676b93cd4d4d9855065b.png "SU 57")
 
-![]( "")
-![]( "")
-![]( "")
+### GUN EMPLACEMENT
+![GUN EMPLACEMENT](https://miniart-models.com/wp-content/uploads/2016/07/0431.jpg "GUN EMPLACEMENT")
 
+### ICON_BUILDING
+![ICON_BUILDING](https://cdn.onlinewebfonts.com/svg/img_66466.png "ICON_BUILDING")
+
+### ICON_SNIPER
+![ICON_SNIPER](https://cdn3.iconfinder.com/data/icons/assassination-hitman-killer-murder-gunman/332/killer-assassin-murder-hitman-murder-002-512.png "ICON_SNIPER")
+
+### ICON_ARTILLARY
+![ICON_ARTILLARY](https://cdn3.iconfinder.com/data/icons/war-6/512/b135_13-512.png "ICON_ARTILLARY")
+
+
+
+### ICON_TANK
+![ICON_TANK](https://pngimg.com/uploads/tank/tank_PNG101037.png "ICON_TANK")
+
+### ICON_HIMARS
+![ICON_HIMARS](https://svgsilh.com/png-512/2025971.png "ICON_HIMARS")
