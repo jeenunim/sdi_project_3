@@ -120,16 +120,16 @@ app.delete('/target/:id', (req, res) => {
         })
 })
 
-
 // Anti-armor endpoint //
 app.get('/anti-armor', (req, res) => {
-    knex('weapon_system')
+    knex('system_type_bridge')
         .select('*')
-        .whereIn('weapon_type_id', '2')
+        .where('weapon_type_id', '2')
         .then(data => {
             //data formatting if we'd like
-            var weapon = data.map(data => data.name)
-            res.json(weapon);
+            var weapon = data.map(data => data.weapon_system_id)
+            let result = knex('weapon_system').select('*').where({id: weapon})
+            return result
         })
     })
 
