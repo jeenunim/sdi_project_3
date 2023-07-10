@@ -1,7 +1,7 @@
 
 
 ## WEAPONS
-
+![tank_t-14](https://w7.pngwing.com/pngs/1016/514/png-transparent-russia-main-battle-tank-armata-universal-combat-platform-t-14-armata-russia-world-self-propelled-artillery-vehicle.png "t-14")
 ![tank_t-54](https://wiki.wgcdn.co/images/4/4d/AnnoR40_T-54.png "t-54")
 
 ### Javelin
@@ -13,6 +13,8 @@
 ### PATRIOT
 ![PATRIOT](https://upload.wikimedia.org/wikipedia/commons/f/f8/Patriot_missile_launch_b.jpg "PATRIOT")
 
+### DRONE
+![Shahed_136](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Shahed_136_rendering.png/330px-Shahed_136_rendering.png "Shahed 136") 
 
 ---
 
