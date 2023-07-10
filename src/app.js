@@ -39,7 +39,7 @@ app.post('/weapon', async (req, res) => {
     } catch (error) {
         res.status(500).json({error});
     }
-    
+
 })
 
 app.patch('/weapon/:id', (req, res) => {
