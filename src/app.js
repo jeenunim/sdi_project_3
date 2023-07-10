@@ -131,30 +131,50 @@ app.get('/weapon_type/:id', (req, res) => {
         })
 })
 
-app.post('/weapon_type', async (req, res) => {
-    const body = req.body;
-    console.log(body);
+app.post('/weapon_type/:typeName/:systemName', async (req, res) => {
+    let obj = {
+        "typeName": req.params.typeName,
+        "systemName": req.params.systemName
+    }
+
+    const systemID = await knex('weapon_system')
+                        .select('id')
+                        .where('name', obj.systemName)
+                        .then(data => Object.assign(obj, {systemName: data}))
+
+    const typeID = await knex('weapon_type')
+                        .select('id')
+                        .where('target_type', obj.typeName)
+                        .then(data => Object.assign(obj, {typeName: data}))
+
     try {
-        const system_type = await knex('system_type_bridge').insert(body)
-        res.status(201).send(system_type);
+        await knex('system_type_bridge')
+        .insert({weapon_system_id: systemID.systemName[0].id, weapon_type_id: typeID.typeName[0].id})
+        res.status(201).send('Weapon type added successfully');
     } catch (error) {
         res.status(500).json({error});
     }
 })
 
-app.delete('/weapon_type/:typeID/:systemID', (req, res) => {
+app.delete('/weapon_type/:typeName/:systemName', (req, res) => {
     let obj = {
-        "typeID" : req.params.typeID,
-        "systemID": req.params.systemID
+        "typeName": req.params.typeName,
+        "systemName": req.params.systemName
     }
-    let systemID = req.params.id
-    let weaponID = req.body.id
-    knex('system_type_bridge').where({weapon_type_id: systemID}).andWhere({weapon_system_id: weaponID}).del()
+
+    knex('system_type_bridge')
+        .join('weapon_type', 'weapon_type_id', '=', 'weapon_type.id')
+        .join('weapon_system','weapon_system_id','=','weapon_system.id')
+        .select('weapon_type.target_type', 'weapon_system.name')
+        .where('weapon_type.target_type', obj.typeName)
+        .andWhere('weapon_system.name', obj.systemName)
+        .del()
         .then(function () {
             res.json('Deleted successfully')
         })
 })
 
+// Server listen //
 app.listen(port, () => {
     console.log(`server is listening on ${port}`)
 })
