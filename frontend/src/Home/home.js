@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom'
-
-const [threatCard, setThreatCard] = useState([]);
+import { Link } from 'react-router-dom';
+import styles from './home.css'
 
 const Home = () => {
 
@@ -9,16 +8,6 @@ const Home = () => {
 // what is the onclick giving back -> provide feedback to backend
 // is it not giving back entire object?
 // what makes sense for an endpoint
-
-//set threat card on home page and console log that out
-
-/*
-useEffect(() => {
-
-})
- */
-
-
 
 // // handle on click
 // const handleOnClick = (selectedCard) => {
@@ -36,13 +25,24 @@ useEffect(() => {
       <h1>Home Page</h1>
       <section className="cards-container">
         <div className="card">
-          <h2>Tank T-54</h2>
+        <Link to={"/targetDetails/" + 't-54'}>
+          <h2 className="card-title">Tank T-54</h2>
           <p>Threats</p>
-          <Link to="/targetDetails"><img id="t54" src="https://wiki.wgcdn.co/images/4/4d/AnnoR40_T-54.png" alt="Card 1" /></Link>
+          <img className="card-image" id="t54" src="https://wiki.wgcdn.co/images/4/4d/AnnoR40_T-54.png" alt="Card 1" />
+        </Link>
         {/* onclick */}
-
+        {/* <Link to={"/targetDetails/" + name}>{name}</Link>; */}
         </div>
 
+        {/* <div className="cardsContainer">
+    <Card
+      title="Tank T-54"
+      description="Threats"
+      imageSrc="https://wiki.wgcdn.co/images/4/4d/AnnoR40_T-54.png"
+      ThreatID="1"
+      link="/targetDetails"
+    />
+    </div> */}
 
 
 
@@ -62,9 +62,6 @@ useEffect(() => {
         </div> */}
 
       </section>
-      {/* <threatCardContext.Provider value={ {target} }>
-          </>
-      </threatCardContext.Provider> */}
     </main>
   );
 }
