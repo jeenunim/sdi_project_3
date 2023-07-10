@@ -30,7 +30,7 @@ app.post('/weapon', async (req, res) => {
     } catch (error) {
         res.status(500).json({error});
     }
-    
+
 })
 
 // Anti-armor endpoint //
