@@ -6,6 +6,6 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('weapon_system').del()
   await knex('weapon_system').insert([
-    {id: 1, name: 'HIMARs', details: 'Medium range rocket artillery. Effective against armor, structures, and personnel'}
+    {id: 1, name: 'HIMARs', details: 'Medium range rocket artillery. Effective against armor, structures, and personnel', img: 'https://pngimg.com/uploads/himars/himars_PNG1.png'}
   ]);
 };
