@@ -119,20 +119,41 @@ app.delete('/target/:id', (req, res) => {
         })
 })
 
-// Anti-armor endpoint //
-// app.get('/anti-armor', (req, res) => {
-//     knex('system_type_bridge')
-//         .select('*')
-//         .where('weapon_type_id', '2')
-//         .then(data => {
-//             //data formatting if we'd like
-//             var weapon = data.map(data => data.weapon_system_id)
-//             let result = knex('weapon_system').select('*').where({id: weapon})
-//             return result
-//         })
-//     })
+// Weapon type endpoint //
+app.get('/weapon_type/:id', (req, res) => {
+    let weaponID = req.params.id;
+    knex('system_type_bridge')
+    .join('weapon_system', 'weapon_system_id', '=', 'weapon_system.id')
+        .select('weapon_system.id', 'weapon_system.name', 'weapon_system.details')
+        .where('weapon_type_id', weaponID)
+        .then(data => {
+            res.json(data)
+        })
+})
 
+app.post('/weapon_type', async (req, res) => {
+    const body = req.body;
+    console.log(body);
+    try {
+        const system_type = await knex('system_type_bridge').insert(body)
+        res.status(201).send(system_type);
+    } catch (error) {
+        res.status(500).json({error});
+    }
+})
 
+app.delete('/weapon_type/:typeID/:systemID', (req, res) => {
+    let obj = {
+        "typeID" : req.params.typeID,
+        "systemID": req.params.systemID
+    }
+    let systemID = req.params.id
+    let weaponID = req.body.id
+    knex('system_type_bridge').where({weapon_type_id: systemID}).andWhere({weapon_system_id: weaponID}).del()
+        .then(function () {
+            res.json('Deleted successfully')
+        })
+})
 
 app.listen(port, () => {
     console.log(`server is listening on ${port}`)
