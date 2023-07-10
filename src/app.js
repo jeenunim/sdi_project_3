@@ -1,9 +1,11 @@
 const express = require('express');
+var cors = require('cors')
 const app = express();
 const port = 3000;
 const knex = require('knex')(require('../knexfile.js')['development'])
 
 app.use(express.json());//will help us parse the body of the request
+app.use(cors())
 
 // Home page //
 app.get('/', (req, res) => {

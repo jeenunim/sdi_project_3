@@ -1,5 +1,5 @@
 import styles from './App.css';
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from '../Navigation/Header';
 import Home from '../Home/home'
@@ -9,15 +9,24 @@ export const ParentContext = createContext();
 
 function App() {
 
-  const [threatCard, setThreatCard] = useState([]);
+  const [targetData, setTargetData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/target')
+      .then(
+        response => response.json()
+      )
+      .then(data => setTargetData(data))
+  }, []);
+
 
   return (
-    <ParentContext.Provider value={{ threatCard, setThreatCard }}>
+    <ParentContext.Provider value={{ targetData, setTargetData }}>
       <div className="App">
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/targetDetails' element={<TargetDetails />} />
+          <Route path='/targetDetails/:id' element={<TargetDetails />} />
           <Route path='/addThreatPage' element={<>you are in threat details</>} />
           <Route path='/weaponDetailsPage' element={<>you are in weapon details</>} />
         </Routes>
