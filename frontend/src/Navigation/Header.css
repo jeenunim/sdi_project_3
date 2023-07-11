@@ -9,6 +9,7 @@ body {
 .menu {
   display: flex;
   max-width: 720px;
+
   list-style: none;
 }
 
