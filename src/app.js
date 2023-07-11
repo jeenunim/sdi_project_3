@@ -126,7 +126,7 @@ app.get('/weapon_type/:id', (req, res) => {
     let weaponID = req.params.id;
     knex('system_type_bridge')
     .join('weapon_system', 'weapon_system_id', '=', 'weapon_system.id')
-        .select('weapon_system.id', 'weapon_system.name', 'weapon_system.details')
+        .select('weapon_system.id', 'weapon_system.name', 'weapon_system.details', 'weapon_system.img')
         .where('weapon_type_id', weaponID)
         .then(data => {
             res.json(data)

@@ -1,69 +1,48 @@
-/* @import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700');
-html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
-	margin: 0;
-	padding: 0;
-}
-html, body { min-height: 100%; }
+@import url(https://fonts.googleapis.com/css?family=Lato);
 
-body {
-	background-color: #345;
-	background-image: linear-gradient(to bottom, #0009, transparent);
-	color: #eee;
-	font-family: 'Lato', sans-serif;
-	font-size: 62.5%;
-	padding: 0 20px;
-	box-sizing: border-box;
+ul {
+  margin: 0;
+  background: #1A1E23;
+  display: flex;
+  align-items: start;
+  list-style-type: none;
+  box-shadow: 0px 1px 4px 1px rgba(121, 121, 121, 1);
 }
 
-.links {
-	background-color: #123;
-	background-image: linear-gradient(to bottom, #0003, transparent);
-	border-bottom: 1px solid #0003;
-	box-shadow: 0 0 32px #0003;
-	font-size: 2em;
-	font-weight: 300;
-}
-.links > a {
-	color: #9ab;
-	padding: .75em;
-	text-align: center;
-	text-decoration: none;
-	transition: all .5s;
-}
-.links > a:hover {
-	background: #ffffff06;
-	color: #adf;
-}
-.links > .line {
-	background: #68a;
-	height: 1px;
-	pointer-events: none;
+ul > li {
+    padding: 6px 0;
+    margin-right: 2em;
 }
 
-#header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-.links {
-	display: grid;
-	grid-template-columns: repeat(var(--items), 1fr);
-	position: relative;
-}
-.links > .line {
-	opacity: 0;
-	transition: all .5s;
-	position: absolute;
-	bottom: 0;
-	left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
-	width: var(--width, calc(100% / var(--items)));
-	--index: 0;
-}
-.links > a:hover ~ .line {
-	opacity: 1;
-}
+ul > li > a {
+      position: relative;
+      display: block;
+      padding: 4px 0;
+      font-family: Lato, sans-serif;
+      color: #ecf0f1;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.5s;
+    
+      &::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #3498db;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+      }
 
-.links > a:nth-of-type(1):hover ~ .line { --index: 1; }
-.links > a:nth-of-type(2):hover ~ .line { --index: 2; }
-.links > a:last-of-type:hover ~ .line { --index: var(--items); } */
+      &:hover {
+        color: #95a5a6;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+}

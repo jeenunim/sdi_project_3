@@ -7,10 +7,10 @@ const WeaponDetails = () => {
 
   const { weaponData } = useContext(ParentContext)
 
-  //useEffect to call our api
-  //we can set our state here for setThreatCard
-  //once we setThreatCard then we can map through it and clickon it
-  //window.location.href -> creates url of where you're at
+  // useEffect to call our api
+  // we can set our state here for setThreatCard
+  // once we setThreatCard then we can map through it and clickon it
+  // window.location.href -> creates url of where you're at
   
   return (
 
@@ -19,10 +19,10 @@ const WeaponDetails = () => {
           {
             weaponData.map((card) => {
               return (
-                  <div className="weaponCard" key={`${card.id}`}>
+                  <div className={styles.weaponCard} key={`${card.id}`}>
                     <Link to={`/weaponDetails/${card.id}`}>
-                      <img className="weaponCardImage" id={`${card.name}`} src={card.img} alt={`${card.name}`} />
-                      <p className="weaponCardTitle">{`${card.name}`}</p>
+                      <img className={styles.weaponCardImage} id={`${card.name}`} src={card.img} alt={`${card.name}`} />
+                      <p className={styles.weaponCardTitle}>{`${card.name}`}</p>
                     </Link>
                   </div>
                 )

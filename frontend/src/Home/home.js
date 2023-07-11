@@ -7,22 +7,24 @@ import navMenu from '../Navigation/Header.css'
 
 const Home = () => {
 
-  const { targetData, weaponData } = useContext(ParentContext)
+  const { targetData } = useContext(ParentContext)
 
   return (
     <main>
-      <section className="cardsContainer">
+      <section className={styles.cardsContainer}>
         <h1 id="title">Targets</h1>
-        <div className='targets'>
+        <div className={styles.targets}>
           {
             targetData.map((card) => {
               return (
-                  <div className="card" key={`${card.id}`}>
-                    <Link to={`/targetDetails/${card.id}`}>
-                      <img className="cardImage" id={`${card.name}`} src={card.img_url} alt={`${card.name}`} />
-                      <p className="cardTitle">{`${card.name}`}</p>
-                    </Link>
-                  </div>
+                  <Link to={`/targetDetails/${card.id}`}>
+                    <div className={styles.card} key={`${card.id}`}>
+                    <div className={styles.cardImageContainer}>
+                      <img className={styles.cardImage} id={`${card.name}`} src={card.img_url} alt={`${card.name}`} />
+                    </div>
+                    <p className={styles.cardTitle}>{`${card.name}`}</p>
+                    </div>
+                  </Link>
                 )
             })
           }

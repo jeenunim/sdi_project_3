@@ -1,11 +1,22 @@
 
 
 ## WEAPONS
-![tank_t-14](https://w7.pngwing.com/pngs/1016/514/png-transparent-russia-main-battle-tank-armata-universal-combat-platform-t-14-armata-russia-world-self-propelled-artillery-vehicle.png "t-14")
-![tank_t-54](https://wiki.wgcdn.co/images/4/4d/AnnoR40_T-54.png "t-54")
+### T-14 Armata
+![tank_t-14](https://pngimg.com/uploads/tank/tank_PNG1310.png "t-14")
+
+### Fisticuffs
+![fisiticuffs](https://i1.sndcdn.com/artworks-000362852637-hjn2ns-t500x500.jpg "fisticuffs")
+
+![rus_infantry](https://i.pinimg.com/originals/54/83/84/5483843e3d67382b38ba81c8f046c100.png "rus_infantry")
+
+### Nuclear
+![Nuke](https://cdn130.picsart.com/304629117083211.png "Nulcear")
 
 ### Javelin
 ![Javelin](https://pngimg.com/uploads/javelin/javelin_PNG15.png "Javelin"){ width=20%,height=auto }
+
+### MANPAD
+![MANPAD](https://odin.tradoc.army.mil/dotcms//dA/9d571a0d48aaee724b5f7f3958aae79e/fileAsset/Stinger_%28A%29910a.png "MANPAD")
 
 ### HIMARS
 ![HIMARS](https://pngimg.com/uploads/himars/himars_PNG1.png "HIMARS")
@@ -16,6 +27,9 @@
 ### DRONE
 ![Shahed_136](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Shahed_136_rendering.png/330px-Shahed_136_rendering.png "Shahed 136") 
 
+### Helicopter
+
+![Ka-52](https://warkitstore.com/wp-content/uploads/2021/01/zvesda-7224.png "Ka-52")
 ---
 
 ### F-15
