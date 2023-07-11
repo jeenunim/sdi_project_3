@@ -3,14 +3,6 @@
  * @returns { Promise<void> }
  */
 
-/*
-_________|_________
-1| sniper|tank
-2| sniper|drone
-3| person|drone
-
- */
-
 exports.up = function(knex) {
   return knex.schema.createTable('weapon_target_bridge', table => {
     table.increments(); //the id -> primary key

@@ -2,16 +2,18 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './homeModule.css'
 import { ParentContext } from '../App/App.js'
+import navMenu from '../Navigation/Header.css'
 
 
 const Home = () => {
 
-  const { targetData } = useContext(ParentContext)
+  const { targetData, weaponData } = useContext(ParentContext)
 
   return (
     <main>
-      <h1>Home Page</h1>
-      <section className="cards-container">
+      <section className="cardsContainer">
+        <h1 id="title">Targets</h1>
+        <div className='targets'>
           {
             targetData.map((card) => {
               return (
@@ -24,10 +26,10 @@ const Home = () => {
                 )
             })
           }
+        </div>
 
-          {/* onclick */}
-          {/* <Link to={"/targetDetails/" + name}>{name}</Link>; */}
-
+        
+          
       </section>
     </main>
   );
