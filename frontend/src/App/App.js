@@ -6,6 +6,7 @@ import Home from '../Home/home'
 import TargetDetails from '../TargetDetailsPage/TargetDetails'
 import WeaponDetails from '../Weapon Details Page/WeaponDetails';
 import WeaponPage from '../Weapon Details Page/WeaponPage';
+import AddThreat from '../Threat page/Threat'
 
 export const ParentContext = createContext();
 
@@ -38,7 +39,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/targetDetails/:id' element={<TargetDetails />} />
-          <Route path='/addThreatPage' element={<>you are in threat details</>} />
+          <Route path='/addThreat' element={<AddThreat />} />
           <Route path='/weaponDetails' element={<WeaponDetails />} />
           <Route path='/weaponDetails/:id' element={<WeaponPage />} />
         </Routes>

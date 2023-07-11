@@ -1,44 +1,68 @@
-body {
-    background: #1A1E23;
-    font-family: "Montserrat", sans-serif;
-}
-
 .cardsContainer {
     margin: 2rem;
 }
 
+.cardsContainer > h1 {
+display: flex;
+justify-content: center;
+}
+
 .targets {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
+display: flex;
+flex-wrap: wrap;
+overflow: unset;
+justify-content: center;
 }
 
 #title {
-    color: white;
+color: white;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 8rem;
-    height: 10rem;
-    margin-right: 1em;
-    padding: 1em;
-    background-color: white;
-    box-shadow: 1px 1px 1px 1px rgb(211, 211, 211);
-    border: 2px solid black;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+width: 15rem;
+height: 10rem;
+margin: 0.5em;
+padding: 1rem;
+background-color: white;
+box-shadow: 0px 0px 6px 1px rgba(211, 211, 211);
+transition: transform 0.3s;
+}
+
+.card:hover {
+transform: scale(1.05);
+}
+
+.cardImageContainer {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+width: auto;
+background-color: #345;
 }
 
 .cardImage {
-    height: 100%;
-    width: 100%;
-    border: 2px solid black;
+display: block;
+object-fit: scale-down;
+height: 50%;
+width: auto;
+margin: auto;
+background-color: transparent;
 }
 
 .cardTitle {
-    display:block;
-    text-align:center;
-    margin-bottom:0px;
-    color: black;
-    border: 2px solid black;
+display: block;
+text-decoration: none;
+text-align: center;
+margin-bottom: 0px;
+color: black;
+font-weight: bold;
+background-color: aliceblue;
+background-size: contain;
+background-blend-mode: darken;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
