@@ -25,6 +25,7 @@ const Header = () => {
       <Link to='/'> Home </Link>
       <Link to='/weaponDetails'>Weapon Details</Link>
     </>
+
   )
 }
 
