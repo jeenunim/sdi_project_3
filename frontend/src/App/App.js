@@ -13,6 +13,7 @@ function App() {
 
   const [targetData, setTargetData] = useState([]);
   const [weaponData, setWeaponData] = useState([]);
+  
 
   useEffect(() => {
     fetch('http://localhost:3000/target')
@@ -29,7 +30,6 @@ function App() {
       )
       .then(data => setWeaponData(data))
   }, []);
-
 
   return (
     <ParentContext.Provider value={{ targetData, setTargetData, weaponData, setWeaponData }}>

@@ -7,7 +7,8 @@ import { ParentContext } from '../App/App'
 
 const TargetDetails = () => {
 
-  const { targetData, weaponData } = useContext(ParentContext)
+  const { targetData } = useContext(ParentContext)
+  const [weaponType, setWeaponType] = useState([]);
 
   //useEffect to call our api
   //we can set our state here for setThreatCard
@@ -18,22 +19,46 @@ const TargetDetails = () => {
   let linkID = linkArr.pop() || linkArr.pop();
 
   let found = targetData.find((e) => e.id == linkID);
-  let targetType = targetData.map((e) => e.weapon_type_id)
-  console.log(found)
   
+  console.log(found)
+  let targetType = targetData.map((e) => e.weapon_type_id)
+  useEffect(() => {
+    
+     fetch(`http://localhost:3000/weapon_type/${targetType[0]}`)
+      .then(
+        response => response.json()
+      )
+      .then(data => setWeaponType(data))
+  }, []);
+  console.log(targetType)
   return (
     <div>
       <div className="temp"></div>
         <div className={styles.container}>
           <div className={styles.header}><h1>THREATS DETAILS</h1></div>
-
+          
+          <div className={styles.targetDetailContainer}>
+            <div className={styles.targetName}>{`${found.name}`}</div>
+            <div className={styles.targetImageContainer}>
+              <img className={styles.targetImage} src={found.img_url} />
+            </div>
+            <div className={styles.targetDetails}>{`${found.details}`}</div>
+          </div>
+          <div className={styles.targetInArea}>
+            <div className={styles.targetInAreaSearchBar}>
+              {/* <form className={styles.targetSearch} onSubmit={handleSubmit}>
+                <input className={styles.targetSearchButton} type='search' placeholder='Target Search' onChange={handleChange} value={searchInput}></input>
+                <button type='sumbit'>Search</button>
+              </form> */}
+          </div>
+          </div>
           <div className={styles.targetInfo}>{`${found.name}\n${found.details}\n`}</div>
 
           <div className={styles.footer}>footer</div>
           <div className={styles.targetInArea}>target in area </div>
           <div className={styles.weaponsGoodAgainst}>
           {
-            weaponData.map((card) => {
+            weaponType.map((card) => {
               return (
                   <div className="weaponCard" key={`${card.id}`}>
                     <Link to={`/weaponDetails/${card.id}`}>

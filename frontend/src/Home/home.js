@@ -7,7 +7,7 @@ import navMenu from '../Navigation/Header.css'
 
 const Home = () => {
 
-  const { targetData, weaponData } = useContext(ParentContext)
+  const { targetData } = useContext(ParentContext)
 
   return (
     <main>

@@ -1,69 +1,46 @@
-/* @import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700');
-html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
-	margin: 0;
-	padding: 0;
-}
-html, body { min-height: 100%; }
-
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
 body {
-	background-color: #345;
-	background-image: linear-gradient(to bottom, #0009, transparent);
-	color: #eee;
-	font-family: 'Lato', sans-serif;
-	font-size: 62.5%;
-	padding: 0 20px;
-	box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #1c1d22;
+  font-family: "Varela Round", sans-serif;
 }
 
-.links {
-	background-color: #123;
-	background-image: linear-gradient(to bottom, #0003, transparent);
-	border-bottom: 1px solid #0003;
-	box-shadow: 0 0 32px #0003;
-	font-size: 2em;
-	font-weight: 300;
-}
-.links > a {
-	color: #9ab;
-	padding: .75em;
-	text-align: center;
-	text-decoration: none;
-	transition: all .5s;
-}
-.links > a:hover {
-	background: #ffffff06;
-	color: #adf;
-}
-.links > .line {
-	background: #68a;
-	height: 1px;
-	pointer-events: none;
+.menu {
+  display: flex;
+  max-width: 720px;
+  list-style: none;
 }
 
-#header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-.links {
-	display: grid;
-	grid-template-columns: repeat(var(--items), 1fr);
-	position: relative;
-}
-.links > .line {
-	opacity: 0;
-	transition: all .5s;
-	position: absolute;
-	bottom: 0;
-	left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
-	width: var(--width, calc(100% / var(--items)));
-	--index: 0;
-}
-.links > a:hover ~ .line {
-	opacity: 1;
+.menu li {
+  width: 125px;
+  height: 50px;
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+
+  a {
+    font-size: 22px;
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+  }
+
+  &:hover {
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
+    animation: line 1s;
+  }
+
+  &:hover a {
+    color: #d94f5c;
+  }
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
-.links > a:nth-of-type(1):hover ~ .line { --index: 1; }
-.links > a:nth-of-type(2):hover ~ .line { --index: 2; }
-.links > a:last-of-type:hover ~ .line { --index: var(--items); } */
+@keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
