@@ -19,10 +19,10 @@ const WeaponDetails = () => {
           {
             weaponData.map((card) => {
               return (
-                  <div className={styles.weaponCard} key={`${card.id}`}>
+                  <div className="weaponCard" key={`${card.id}`}>
                     <Link to={`/weaponDetails/${card.id}`}>
-                      <img className={styles.weaponCardImage} id={`${card.name}`} src={card.img} alt={`${card.name}`} />
-                      <p className={styles.weaponCardTitle}>{`${card.name}`}</p>
+                      <img className="weaponCardImage" id={`${card.name}`} src={card.img} alt={`${card.name}`} />
+                      <p className="weaponCardTitle">{`${card.name}`}</p>
                     </Link>
                   </div>
                 )

@@ -11,18 +11,23 @@ const Home = () => {
 
   return (
     <main>
-      <section className={styles.cardsContainer}>
+      <section className="cardsContainer">
         <h1 id="title">Targets</h1>
-        <div className={styles.targets}>
+        <div className="targets">
           {
             targetData.map((card) => {
               return (
                   <Link to={`/targetDetails/${card.id}`}>
-                    <div className={styles.card} key={`${card.id}`}>
-                    <div className={styles.cardImageContainer}>
-                      <img className={styles.cardImage} id={`${card.name}`} src={card.img_url} alt={`${card.name}`} />
+                    <div className="card" key={`${card.id}`}>
+                    <div className="cardImageContainer">
+                      <img 
+                      className="cardImage" 
+                      id={`${card.name}`} 
+                      src={card.img_url} 
+                      alt={`${card.name}`} 
+                      />
                     </div>
-                    <p className={styles.cardTitle}>{`${card.name}`}</p>
+                    <p className="cardTitle">{`${card.name}`}</p>
                     </div>
                   </Link>
                 )

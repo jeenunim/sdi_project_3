@@ -8,67 +8,72 @@ import { ParentContext } from '../App/App'
 
 const TargetDetails = () => {
 
+  // const myFoundData = JSON.parse(localStorage.getItem('MY_FOUND_DATA')); //added
+  // const myWeaponTypeData= JSON.parse(localStorage.getItem('MY_WEAPON_TYPE_DATA')); //added
 
-  const { targetData, weaponData } = useContext(ParentContext);
-  const [weaponType, setWeaponType] = useState([]);
+  const { targetData } = useContext(ParentContext);
+  const [weaponType, setWeaponType] = useState([]); //originally initialized [] uncomment if doesn't work
   const [searchInput, setSearchInput] = useState('');
-
+  
   const navigate = useNavigate();
-  console.log('SEARCH INPUT ', searchInput);
-
-  //useEffect to call our api
-  //we can set our state here for setThreatCard
-  //once we setThreatCard then we can map through it and clickon it
-  //window.location.href -> creates url of where you're at
-  let link = window.location.href
-  let linkArr = link.split('/')
+  
+  let link = window.location.href; //window.location.href -> creates url of where you're at
+  let linkArr = link.split('/');
   let linkID = linkArr.pop() || linkArr.pop();
-
   let found = targetData.find((e) => e.id == linkID);
+  
+  console.log(found)
+  
+  const [frontTarget, setFrontTarget] = useState(found);
+  
+  useEffect(() => {
+    const frontTargetData = JSON.parse(window.localStorage.getItem('Target Data'));
+    if (frontTargetData !== undefined) setFrontTarget(frontTargetData)
+    }, [])
+  useEffect(() => {
+  window.localStorage.setItem('Target Data',JSON.stringify(frontTarget))
+  }, [frontTarget])
+  console.log('frontTarget: ' + frontTarget)
+  
+  //  useEffect(()=>{
+  //   localStorage.setItem('MY_WEAPON_TYPE_DATA', JSON.stringify(found));
+  // }, [found])
 
+
+  //this useEffect is for the weaponType fetch
   useEffect(() => {
 
-    fetch(`http://localhost:3000/weapon_type/${found.weapon_type_id}`)
+    fetch(`http://localhost:3000/weapon_type/${frontTarget.weapon_type_id}`)
       .then(
         response => response.json()
       )
       .then(data => setWeaponType(data))
   }, [weaponType]);
 
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
   }
-  //};
 
   const handleChange = (event) => {
     setSearchInput(event.target.value);
   }
 
-
-  // const targetsInArea = targetData.filter(target => target?.name?.toLowerCase().trim().includes(searchInput.toLowerCase().trim()))?.map(filteredTarget => {
-  //   return filteredTarget
-  // })
-
-  // console.log('TESTTESTESTESTTEST', targetsInArea)
-
-  //target.includes(searchInput))
-  //.map(filteredName => (
-  //   console.log(filteredName)
-  // ))}
-
   return (
-    <div className={styles.container}>
+  <div className={styles.container}>
+    <main>
       {/* //////////////  HEADER  ///////////////////////////////////////// */}
       <div className={styles.header}>
         <h1>THREATS DETAILS</h1>
       </div>
       {/* //////////// TARGET DETAILS ///////////////////////////////////////////////////// */}
       <div className={styles.targetDetailContainer}>
-        <div className={styles.targetName}>{`${found.name}`}</div>
+        <div className={styles.targetName}>{`${frontTarget.name}`}</div>
         <div className={styles.targetImageContainer}>
-          <img className={styles.targetImage} src={found.img_url} />
+          <img className={styles.targetImage} src={frontTarget.img_url} />
         </div>
-        <div className={styles.targetDetails}>{`${found.details}`}</div>
+        <div className={styles.targetDetails}>{`${frontTarget.details}`}</div>
       </div>
       {/* /////////////TARGET IN AREA /////////////////////////////////////////// */}
 
@@ -127,7 +132,9 @@ const TargetDetails = () => {
         }
       </div>
       {/* /////////////// FROM TOP DIV ////////////////////////////////////////// */}
-    </div>
+    </main>
+    
+  </div>
 
 
   );
