@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from '../Navigation/Header';
 import Home from '../Home/home'
+import Styles from '../Threat page/Threat.css'
 
 const AddThreat = () => {
     const [name, setName] = useState('');
@@ -24,13 +25,12 @@ const AddThreat = () => {
                 )
         };
         fetch('http://localhost:3000/target', requestOptions)
-        .then(() => console.log('new threat added'))  
+        .then(() => {alert('Threat added successfully'); setTimeout(window.location.reload(), 3000)})
     }
     
 
     return (
         <div className="addThreatContainer">
-            <h1 className="addThreatHeader">Header</h1>
             <div>
                 <form onSubmit={handleSubmit}>
                     <label className="labelHeaders">Threat Name:
@@ -65,7 +65,7 @@ const AddThreat = () => {
                             value={img_url} 
                             onChange={(e) => setImg_url(e.target.value)}/>
                     </label><br/><br/>
-                    <button>Submit</button>
+                    <button className='submitButton'>Submit</button>
                 </form>
             </div>
         </div>

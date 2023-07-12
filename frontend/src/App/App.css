@@ -3,3 +3,82 @@ body {
 	background-image: linear-gradient(to bottom, #0009, transparent);
     min-height: 100vh;
 }
+
+#title {
+    color: white;
+}
+
+.cardsContainer {
+    margin: 2rem;
+}
+
+.cardsContainer > h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.noDec {
+    text-decoration: none;
+}
+.targetInAreaCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    width:15rem;
+    height:15rem;
+  }
+  .targetInAreaCardImageContainer {
+    display: block;
+    object-fit: scale-down;
+    margin: auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+ 
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15rem;
+    height: 10rem;
+    margin: 0.5em;
+    margin-bottom: 2em;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0px 0px 6px 1px rgba(211, 211, 211);
+    transition: transform 0.3s;
+    border-radius: 10px;
+    }
+.card:hover {
+    transform: scale(1.05);
+}
+.cardImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: auto;
+}
+.cardImage {
+    display: block;
+    object-fit: scale-down;
+    height: 100%;
+    width: auto;
+    max-width: 90%;
+    margin: auto;
+    background-color: transparent;
+    border-radius: 10px;
+    
+    }
+.cardTitle {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 0px;
+    color: black;
+    font-weight: bold;
+    background-size: contain;
+    background-blend-mode: darken;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }

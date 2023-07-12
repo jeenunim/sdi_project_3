@@ -1,5 +1,8 @@
 .weapons {
-  text-align: center;
+  display: flex;
+flex-wrap: wrap;
+overflow: unset;
+justify-content: center;
 }
 
 .weaponCard {
@@ -22,20 +25,15 @@
 }
 
 .weaponContainer {
-  text-align: center;
-  position: relative; 
-}
-
-.weaponHeader {
-  text-align: center;
-  position: fixed;
-  left: 30%;
-  background-color: #282c34;
-  width: 43.75rem;
-  padding: 0.625rem;
-  margin-top: 1rem;
-  margin-bottom: 1.25rem;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  size: auto;
+  padding: 2rem;
+  background: #345;
+  margin: 2em;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px 1px black;
+  max-width: fit-content;
 }
 
 .weaponImageContainer {
@@ -43,6 +41,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+  max-width: 20em;
+  max-height: 20em;
+  margin: auto;
 }
 
 .weaponImage {
@@ -50,21 +51,25 @@
   max-height: 100%;
   width: auto;
   height: auto;
-  transition: transform 0.3s;
-  object-fit: scale-down;
-}
-
-.weaponImage:hover {
-  transform: scale(1.1);
 }
 
 .weaponText {
+  margin-top: 1em;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   font-size: large;
   text-align: center;
-  color: black;
   flex-wrap: wrap;
   background-size: auto;
-  background-color: rgb(223, 235, 223);
+  color: white;
+}
+
+.header {
+  text-align: center;
+  color: white;
+}
+
+.weaponDetails {
+  display: flex;
+  justify-content: center;
 }

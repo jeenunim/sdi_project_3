@@ -1,4 +1,4 @@
-import styles from './WeaponDetails.css'
+import './WeaponDetails.css'
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ParentContext } from '../App/App'
@@ -14,21 +14,25 @@ const WeaponDetails = () => {
   
   return (
 
-    <div className='weapons'>
-          <h1>Weapons</h1>
+    <section className='cardsContainer'>
+        <h1 id="title">Weapons</h1>
+        <div className="weapons">
           {
             weaponData.map((card) => {
               return (
-                  <div className={styles.weaponCard} key={`${card.id}`}>
-                    <Link to={`/weaponDetails/${card.id}`}>
-                      <img className={styles.weaponCardImage} id={`${card.name}`} src={card.img} alt={`${card.name}`} />
-                      <p className={styles.weaponCardTitle}>{`${card.name}`}</p>
-                    </Link>
-                  </div>
+                  <Link className="noDec" to={`/weaponDetails/${card.id}`}>
+                    <div className="card" key={`${card.id}`}>
+                      <div className='cardImageContainer'>
+                        <img className="cardImage" id={`${card.name}`} src={card.img} alt={`${card.name}`} />
+                      </div>
+                      <p className="cardTitle">{`${card.name}`}</p>
+                    </div>
+                  </Link>
                 )
             })
           }
         </div>
+    </section>
     
   );
 
