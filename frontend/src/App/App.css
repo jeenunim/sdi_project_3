@@ -2,4 +2,5 @@ body {
     background-color: #345;
 	background-image: linear-gradient(to bottom, #0009, transparent);
     min-height: 100vh;
+    text-decoration: none;
 }

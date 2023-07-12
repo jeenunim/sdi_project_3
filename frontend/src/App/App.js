@@ -11,9 +11,10 @@ import AddThreat from '../Threat page/Threat'
 export const ParentContext = createContext();
 
 function App() {
-
+  
   const [targetData, setTargetData] = useState([]);
   const [weaponData, setWeaponData] = useState([]);
+  
   
 
   useEffect(() => {
@@ -34,7 +35,6 @@ function App() {
 
   return (
     <ParentContext.Provider value={{ targetData, setTargetData, weaponData, setWeaponData }}>
-      <div className="App">
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -43,7 +43,6 @@ function App() {
           <Route path='/weaponDetails' element={<WeaponDetails />} />
           <Route path='/weaponDetails/:id' element={<WeaponPage />} />
         </Routes>
-      </div>
     </ParentContext.Provider>
   );
 }
