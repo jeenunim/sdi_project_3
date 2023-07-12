@@ -13,9 +13,7 @@ const Home = () => {
   return (
     <main>
       <section className="cardsContainer">
-      <section className="cardsContainer">
         <h1 id="title">Targets</h1>
-        <div className="targets">
         <div className="targets">
           {
             targetData.map((card) => {
