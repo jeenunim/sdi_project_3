@@ -1,5 +1,5 @@
 import styles from './TargetDetails.module.css'
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Navigation/Header';
@@ -22,7 +22,7 @@ const TargetDetails = () => {
   let linkID = linkArr.pop() || linkArr.pop();
   let found = targetData.find((e) => e.id == linkID);
   
-  console.log(found)
+  
   
   const [frontTarget, setFrontTarget] = useState(found);
   
@@ -30,9 +30,12 @@ const TargetDetails = () => {
     const frontTargetData = JSON.parse(window.localStorage.getItem('Target Data'));
     if (frontTargetData !== undefined) setFrontTarget(frontTargetData)
     }, [])
+    
   useEffect(() => {
   window.localStorage.setItem('Target Data',JSON.stringify(frontTarget))
   }, [frontTarget])
+  
+  console.log(found)
   console.log('frontTarget: ' + frontTarget)
   
   //  useEffect(()=>{
