@@ -12,18 +12,20 @@ const WeaponPage = () => {
     console.log(weapon);
 
     return (
-    <div className="weaponContainer">
-        <h1 className="weaponHeader">WEAPON DETAILS</h1>
-        <div className="weaponImageContainer">
-        <img
-            className="weaponImage"
-            id={`${weapon.name}`}
-            src={weapon.img}
-            alt={`${weapon.name}`}
-        />
-        </div>
-        <div className="weaponText">
-        {`${weapon.name}:${'\n'}${weapon.details}\n`}
+    <div class="weaponDetails">
+        <div className="weaponContainer">
+            <h1 className="header">WEAPON DETAILS</h1>
+            <div className="weaponImageContainer">
+                <img
+                    className="weaponImage"
+                    id={`${weapon.name}`}
+                    src={weapon.img}
+                    alt={`${weapon.name}`}
+                />
+            </div>
+            <div className="weaponText">
+            {`${weapon.name}:${'\n'}${weapon.details}\n`}
+            </div>
         </div>
     </div>
     );

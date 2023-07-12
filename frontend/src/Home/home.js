@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './homeModule.css'
+import styles from './home.css'
 import { ParentContext } from '../App/App.js'
 import navMenu from '../Navigation/Header.css'
 
@@ -9,25 +9,21 @@ const Home = () => {
 
   const { targetData } = useContext(ParentContext)
 
+
   return (
     <main>
       <section className="cardsContainer">
-        <h1 id="title">Targets</h1>
+        <h1 id="title">SARGE 9000</h1>
         <div className="targets">
           {
             targetData.map((card) => {
               return (
-                  <Link to={`/targetDetails/${card.id}`}>
+                  <Link className="noDec" to={`/targetDetails/${card.id}`}>
                     <div className="card" key={`${card.id}`}>
-                    <div className="cardImageContainer">
-                      <img 
-                      className="cardImage" 
-                      id={`${card.name}`} 
-                      src={card.img_url} 
-                      alt={`${card.name}`} 
-                      />
-                    </div>
-                    <p className="cardTitle">{`${card.name}`}</p>
+                      <div className="cardImageContainer">
+                        <img className="cardImage" id={`${card.name}`} src={card.img_url} alt={`${card.name}`} />
+                      </div>
+                      <p className="cardTitle">{`${card.name}`}</p>
                     </div>
                   </Link>
                 )

@@ -1,5 +1,5 @@
-import styles from './TargetDetails.module.css'
-import React, { useState, useEffect, useContext} from 'react';
+import styles from './TargetDetails.css'
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Navigation/Header';
@@ -46,7 +46,7 @@ const TargetDetails = () => {
   //this useEffect is for the weaponType fetch
   useEffect(() => {
 
-    fetch(`http://localhost:3000/weapon_type/${frontTarget.weapon_type_id}`)
+    fetch(`http://localhost:3000/weapon_type/${found.weapon_type_id}`)
       .then(
         response => response.json()
       )
@@ -64,27 +64,22 @@ const TargetDetails = () => {
   }
 
   return (
-  <div className={styles.container}>
-    <main>
-      {/* //////////////  HEADER  ///////////////////////////////////////// */}
-      <div className={styles.header}>
-        <h1>THREATS DETAILS</h1>
-      </div>
+    <div className="container">
       {/* //////////// TARGET DETAILS ///////////////////////////////////////////////////// */}
-      <div className={styles.targetDetailContainer}>
-        <div className={styles.targetName}>{`${frontTarget.name}`}</div>
-        <div className={styles.targetImageContainer}>
-          <img className={styles.targetImage} src={frontTarget.img_url} />
+      <div className="targetDetailContainer">
+        <div className="targetName">{`${found.name}`}</div>
+        <div className="targetImageContainer">
+          <img className="targetImage" src={found.img_url} />
         </div>
-        <div className={styles.targetDetails}>{`${frontTarget.details}`}</div>
+        <div className="targetDetails">{`${found.details}`}</div>
       </div>
       {/* /////////////TARGET IN AREA /////////////////////////////////////////// */}
 
-      <div className={styles.targetInArea}>
-        <div className={styles.targetInAreaSearchBar}>
-          <form className={styles.targetSearch} onSubmit={handleSubmit}>
+      <div className="targetInArea">
+        <div className="targetInAreaSearchBar">
+          <form className="targetSearch" onSubmit={handleSubmit}>
             <input
-              className={styles.targetSearchButton}
+              className="targetSearchButton"
               type='search'
               placeholder='Target Search'
               onChange={handleChange}
@@ -93,10 +88,10 @@ const TargetDetails = () => {
             {/* <button type='sumbit'>Search</button> */}
           </form>
         </div>
-        <div className={styles.targetInAreaContainer}>
+        <div className="targetInAreaContainer">
           {targetData.filter(target => target.name.toLowerCase().trim().includes(searchInput.toLowerCase().trim())).map(filteredTarget => {
             return (
-              <Link
+              <Link className='noDec'
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(`/targetDetails/${filteredTarget.id}`);
@@ -104,13 +99,14 @@ const TargetDetails = () => {
                   //if (e) navigate(`/weaponDetails/${filteredTarget.id}`);
                 }}>
 
-                <div className={styles.targetInAreaCard}>
-                  <div className={styles.targetInAreaCardImageContainer}>
+                <div className="card">
+                  <div className="cardImageContainer">
                     <img
                       id={`${filteredTarget.id}`}
                       src={filteredTarget.img_url}
-                      className={styles.weaponCardImage} />
+                      className="cardImage" />
                   </div>
+                  <p className="cardTitle">{`${filteredTarget.name}`}</p>
                 </div>
               </Link>
             );
@@ -120,23 +116,24 @@ const TargetDetails = () => {
       </div>
 
       {/* //////////// WEAPONS GOOD AGAINST  ///////////////////////////////////////// */}
-      <div className={styles.weaponsGoodAgainst}>
+      <div className="weaponsGoodAgainst">
+        <h1 id="title">Effective Weapons:</h1>
         {
           weaponType.map((card) => {
             return (
-              <div className={styles.weaponCard} key={`${card.id}`}>
-                <Link to={`/weaponDetails/${card.id}`}>
-                  <img className={styles.weaponCardImage} id={`${card.name}`} src={card.img} alt={`${card.name}`} />
-                  <p className={styles.weaponCardTitle}>{`${card.name}`}</p>
-                </Link>
-              </div>
+              <Link to={`/weaponDetails/${card.id}`} className="noDec" >
+                <div className="card" key={`${card.id}`}>
+                  <div className="cardImageContainer">
+                    <img className="cardImage" id={`${card.name}`} src={card.img} alt={`${card.name}`} />
+                  </div>
+                  <p className="cardTitle">{`${card.name}`}</p>
+                </div>
+              </Link>
             )
           })
         }
       </div>
       {/* /////////////// FROM TOP DIV ////////////////////////////////////////// */}
-    </main>
-    
   </div>
 
 
