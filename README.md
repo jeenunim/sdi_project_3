@@ -18,3 +18,5 @@
 > - Open a web browser
 > - Navigate to http://localhost:3000
 
+#### ERD
+![enter image description here](https://github.com/jeenunim/sdi_project_3/assets/33403998/9016641e-c26c-4eea-bf40-6ff56ed21901)
