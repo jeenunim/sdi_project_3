@@ -43,7 +43,7 @@ const TargetDetails = () => {
   //this useEffect is for the weaponType fetch
   useEffect(() => {
 
-    fetch(`http://localhost:3000/weapon_type/${frontTarget.weapon_type_id}`)
+    fetch(`http://localhost:3000/weapon_type/${found.weapon_type_id}`)
       .then(
         response => response.json()
       )
