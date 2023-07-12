@@ -1,9 +1,12 @@
 .addThreatContainer {
+    display: flex;
     width: 400px;
-    margin: 0 auto;
+    margin: 5em auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background: white;
+    box-shadow: 15px 15px 15px black;
   }
   
   .addThreatHeader {
@@ -23,8 +26,13 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    max-width: 29em;
+    min-width: 29em;
   }
-  
+
+  textarea {
+    min-height: 10em;
+  }
   select {
     width: 100%;
     padding: 8px;
@@ -40,9 +48,13 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
   }
   
   button:hover {
     background-color: #45a049;
   }
-  
+
+  input {
+    border: 2px solid black;
+  }
