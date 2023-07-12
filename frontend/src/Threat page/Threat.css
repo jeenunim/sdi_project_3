@@ -33,30 +33,6 @@
   textarea {
     min-height: 10em;
   }
-
-  /* .input,
-  .textarea {
-  border: 1px solid #ccc;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 1px 6px;
-  max-width: 10em;
-  }
-
-  .textarea {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    resize: both;
-    min-height: 40px;
-    line-height: 20px;
-  }
-
-  .textarea[contenteditable]:empty::before {
-    content: "Placeholder still possible";
-    color: gray;
-  }
-   */
   select {
     width: 100%;
     padding: 8px;
