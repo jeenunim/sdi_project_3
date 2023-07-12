@@ -49,14 +49,16 @@ const AddThreat = () => {
                         onChange={(e) => setDetails(e.target.value)}/>
                     </label><br/><br/>
                     
-                    <select value={weapon_type_id} 
-                        onChange={(e) => setWeapon_type_id(parseInt(e.target.value))}>
-                        
-                        <option value='1'>Anti-air</option>
-                        <option value='2'>Anti-armor</option>
-                        <option value='3'>Anti-personnel</option>
-                        <option value='4'>Anti-structure</option>
-                    </select><br/><br/>
+                    <label className="labelHeaders">Weapon type to combat target:
+                        <select value={weapon_type_id} 
+                            onChange={(e) => setWeapon_type_id(parseInt(e.target.value))}>
+                            
+                            <option value='1'>Anti-air</option>
+                            <option value='2'>Anti-armor</option>
+                            <option value='3'>Anti-personnel</option>
+                            <option value='4'>Anti-structure</option>
+                        </select>
+                    </label><br/><br/>
 
                     <label className="labelHeaders">Image link:
                         <input name="threat"
